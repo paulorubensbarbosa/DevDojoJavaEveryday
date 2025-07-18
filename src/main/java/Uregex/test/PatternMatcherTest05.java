@@ -24,6 +24,7 @@ public class PatternMatcherTest05 {
         // | = ou
         // $ = fim da linha
         // . = ex 1.3 retorna = 123, 133, 1@3, 1A3
+        // ^ faz a negação caso esteja dentro de um colchetes ex: [^abc] = procura todos os caracteres que não são a, b e c
 
 
 
