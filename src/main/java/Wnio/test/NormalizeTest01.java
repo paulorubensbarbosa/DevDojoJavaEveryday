@@ -17,5 +17,6 @@ public class NormalizeTest01 {
         System.out.println(path2.normalize());
 
 
+
     }
 }
