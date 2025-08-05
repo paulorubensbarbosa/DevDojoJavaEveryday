@@ -1,6 +1,7 @@
 package Xserializacao.test;
 
 import Xserializacao.dominio.Aluno;
+import Xserializacao.dominio.Turma;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,7 +13,10 @@ import java.nio.file.Paths;
 public class SerializacaoTest01 {
     public static void main(String[] args) {
         Aluno aluno = new Aluno(1L, "Paulo Rubens", "123456");
-//        serializar(aluno);
+        Turma turma = new Turma("Maratona Java DevDojo");
+
+        aluno.setTurma(turma);
+        serializar(aluno);
         deserializar();
     }
 
