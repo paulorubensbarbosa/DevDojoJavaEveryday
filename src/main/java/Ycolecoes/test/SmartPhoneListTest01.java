@@ -3,6 +3,7 @@ package Ycolecoes.test;
 import Ycolecoes.dominio.Smartphone;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SmartPhoneListTest01 {
