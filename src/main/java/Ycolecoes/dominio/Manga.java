@@ -2,15 +2,30 @@ package Ycolecoes.dominio;
 
 import java.util.Objects;
 
-public class Manga {
-    private Long id;
+public class Manga implements Comparable<Manga>{
+    private Long id = 0L;
     private String nome;
     private double preco;
+    private static Long idCount = 0L;
 
     public Manga(Long id, String nome, double preco) {
         Objects.requireNonNull(id, "Id não pode ser null");
         Objects.requireNonNull(nome, "Nome não pode ser null");
         this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public Manga(String nome, double preco) {
+        //Objects.requireNonNull(id, "Id não pode ser null");
+        Objects.requireNonNull(nome, "Nome não pode ser null");
+
+        //Random não funciona legal pois pode gerar um ID Igual
+        //this.id = RandomGenerator.getDefault().nextLong(2);
+
+        this.id = idCount;
+        idCount++;
+
         this.nome = nome;
         this.preco = preco;
     }
@@ -59,4 +74,40 @@ public class Manga {
     public int hashCode() {
         return Objects.hash(id, nome, preco);
     }
+
+
+    //No compareTo, você tem acesso a dois objetos, o objeto this. e o próximo que você vai comprar, no caso o outroManga
+    //retorna negativo SE o this < outrManga
+    //SE this == outroManga retorna 0
+    //Se this > outroManga retorna positivo
+//    @Override
+//    public int compareTo(Manga outroManga) {
+//        if(this.id < outroManga.getId()){
+//            return -1;
+//        }if(this.id.equals(outroManga.getId())){
+//            return 0;
+//        }else {
+//            return 1;
+//        }
+//
+//    }
+
+    //Como o ID é um Wrapper, a própria classe Long tem um métod ComptareTo para facilitar, ficando deste forma:
+
+
+    @Override
+    public int compareTo(Manga o) {
+        //compara Via ID
+        //return this.id.compareTo(o.getId());
+
+        //compara via preco
+        //return  Double.valueOf(this.preco).compareTo(Double.valueOf(o.getPreco()));
+        //ou
+        //return Double.compare(this.preco, o.getPreco());
+
+        //compara via nome
+        return this.nome.compareTo(o.getNome());
+    }
+
+
 }
