@@ -82,7 +82,7 @@ public class Manga implements Comparable<Manga>{
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
         Manga manga = (Manga) object;
-        return Double.compare(preco, manga.preco) == 0 && Objects.equals(id, manga.id) && Objects.equals(nome, manga.nome);
+        return Objects.equals(id, manga.id) && Objects.equals(nome, manga.nome);
     }
 
     @Override
