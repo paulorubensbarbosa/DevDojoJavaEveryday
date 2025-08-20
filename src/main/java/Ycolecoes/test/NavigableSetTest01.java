@@ -42,5 +42,11 @@ public class NavigableSetTest01 {
             System.out.println(manga);
         }
 
+        System.out.println("-----------------------------------");
+        //imprimir na ordem inversa
+        for (Manga manga : mangas.descendingSet()) {
+            System.out.println(manga);
+        }
+
     }
 }
