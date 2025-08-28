@@ -16,11 +16,16 @@ class sortMangaById implements Comparator<Manga>{
 public class QueueTeste01 {
     public static void main(String[] args) {
         //First in, first out
-        Queue<String> fila = new PriorityQueue<>(sortMangaById);
+        Queue<String> fila = new PriorityQueue<>();
         fila.add("C");
         fila.add("B");
         fila.add("A");
 
+        for (String s : fila) {
+            System.out.println(s);
+        }
+
+        System.out.println(fila.poll());
 
     }
 }
